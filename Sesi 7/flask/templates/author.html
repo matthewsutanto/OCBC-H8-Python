@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+
+    <a href="{{url_for('home')}}">Homepage</a>
+    <h1>List of author ID</h1>
+    <ul>
+        {% for author_id in author_book.keys() %}
+            <li>{{author_id}}</li>
+        {% endfor %}
+    </ul>
+    <form action="/author" method="POST">
+        <h3>Add Author</h3>
+        <p>
+            <label for="author_id">Author id</label>
+            <input type="text" name="author_id"/>
+        </p>
+        <p><input type="submit" name="submit_recipe"/></p>
+    </form>
+</body>
+</html>
