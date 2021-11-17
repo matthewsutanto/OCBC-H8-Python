@@ -1,0 +1,17 @@
+folder pycache dan venv/ di gitignore
+git init
+echo web: gunicorn app:connex_app > Procfile
+pip freeze > requirements.txt
+heroku create hacktiv8-flask-rest-024
+heroku create h8ocbc-milestone1-024
+heroku addons:create heroku-postgresql:hobby-dev --app hacktiv8-flask-rest-024
+heroku addons:create heroku-postgresql:hobby-dev --app h8ocbc-milestone1-024
+heroku config --app hacktiv8-flask-rest-024
+git add .
+git commit -m "Add Heroku deployment files"
+heroku git:remote -a h8ocbc-milestone1-024
+git push heroku master
+heroku open
+heroku run python
+exec(open("build_database.py").read())
+exec(open("test.py").read())
